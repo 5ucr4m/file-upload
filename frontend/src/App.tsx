@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { UploadZone } from './components/UploadZone'
 import { FileList } from './components/FileList'
+import { ThemeToggle } from './components/ThemeToggle'
 import { Upload, Files } from 'lucide-react'
 import { Button } from './components/ui/button'
 
@@ -18,19 +19,24 @@ function App() {
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8 max-w-7xl">
         {/* Header */}
-        <div className="mb-8 text-center">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary/30 blur-xl rounded-full" />
-              <div className="relative bg-gradient-to-br from-blue-500 to-blue-600 p-4 rounded-xl">
-                <Upload className="w-8 h-8 text-white" />
+        <div className="mb-8">
+          <div className="flex justify-end mb-4">
+            <ThemeToggle />
+          </div>
+          <div className="text-center">
+            <div className="inline-flex items-center gap-3 mb-4">
+              <div className="relative">
+                <div className="absolute inset-0 bg-primary/30 blur-xl rounded-full" />
+                <div className="relative bg-gradient-to-br from-primary to-primary/80 p-4 rounded-xl">
+                  <Upload className="w-8 h-8 text-primary-foreground" />
+                </div>
               </div>
             </div>
+            <h1 className="text-4xl font-bold text-foreground mb-2">File Upload System</h1>
+            <p className="text-muted-foreground">
+              Upload, version, and share your files with ease
+            </p>
           </div>
-          <h1 className="text-4xl font-bold text-white mb-2">File Upload System</h1>
-          <p className="text-muted-foreground">
-            Upload, version, and share your files with ease
-          </p>
         </div>
 
         {/* Tab Navigation */}

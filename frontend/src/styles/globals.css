@@ -1,63 +1,96 @@
 @import "tailwindcss";
 
-@theme {
-  --color-background: 222 47% 11%;
-  --color-foreground: 210 40% 98%;
+:root {
+  --radius: 0.65rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.141 0.005 285.823);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.141 0.005 285.823);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.141 0.005 285.823);
+  --primary: oklch(0.646 0.222 41.116);
+  --primary-foreground: oklch(0.98 0.016 73.684);
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --accent: oklch(0.967 0.001 286.375);
+  --accent-foreground: oklch(0.21 0.006 285.885);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  --ring: oklch(0.75 0.183 55.934);
+}
 
-  --color-card: 222 47% 15%;
-  --color-card-foreground: 210 40% 98%;
-
-  --color-primary: 217 91% 60%;
-  --color-primary-foreground: 222 47% 11%;
-
-  --color-secondary: 217 33% 17%;
-  --color-secondary-foreground: 210 40% 98%;
-
-  --color-muted: 217 33% 17%;
-  --color-muted-foreground: 215 20% 65%;
-
-  --color-accent: 217 91% 60%;
-  --color-accent-foreground: 222 47% 11%;
-
-  --color-destructive: 0 63% 31%;
-  --color-destructive-foreground: 210 40% 98%;
-
-  --color-border: 217 33% 17%;
-  --color-input: 217 33% 17%;
-  --color-ring: 217 91% 60%;
-
-  --radius: 0.5rem;
+.dark {
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.705 0.213 47.604);
+  --primary-foreground: oklch(0.98 0.016 73.684);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.408 0.123 38.172);
 }
 
 * {
-  border-color: hsl(var(--color-border));
+  border-color: var(--border);
 }
 
 body {
-  background: linear-gradient(180deg, #0a1628 0%, #0f2847 50%, #1a4d8f 100%);
+  background: var(--background);
   min-height: 100vh;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-  color: hsl(var(--color-foreground));
+  color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background: linear-gradient(180deg, #0a1628 0%, #0f2847 50%, #1a4d8f 100%);
 }
 
 .glass-effect {
-  background: rgba(15, 40, 71, 0.6);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+.dark .glass-effect {
+  background: rgba(15, 40, 71, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .glass-effect-strong {
-  background: rgba(15, 40, 71, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+.dark .glass-effect-strong {
+  background: rgba(15, 40, 71, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .glow-effect {
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  transition: box-shadow 0.3s ease;
 }
 
 .glow-effect-strong {
   box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+  transition: box-shadow 0.3s ease;
 }
