@@ -1,0 +1,19 @@
+# Backend
+backend/uploads/
+backend/fileupload.db
+backend/fileupload
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
